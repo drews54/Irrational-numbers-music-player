@@ -12,6 +12,9 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
+#include <sstream>
 #include <math.h>
+#include <Windows.h>
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
