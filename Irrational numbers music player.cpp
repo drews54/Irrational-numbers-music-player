@@ -29,10 +29,10 @@ int main()
 	};
 
 	int input = NULL;
-	std::cout << "Введите число: ";
+	std::cout << "Waiting for input: ";
 	std::cin >> input;
 	if (input == NULL)
-		throw "Нет ввода.";
+		throw "No input.";
 
 	std::string str = to_string(input);
 
