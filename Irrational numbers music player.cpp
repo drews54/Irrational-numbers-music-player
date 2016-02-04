@@ -10,7 +10,7 @@ std::string to_string(double x)
 	return ss.str();
 }
 
-int main()
+int main(void)
 {
 	setlocale(LC_ALL, "Russian");
 	
@@ -28,14 +28,26 @@ int main()
 		Mi1
 	};
 
-	int input = NULL;
+	float input = NULL;
 	std::cout << "Waiting for input: ";
 	std::cin >> input;
-	if (input == NULL)
-		throw "No input.";
+	try
+	{
+		if (input == NULL)
+			throw 99;
+		if (input >= 100)
+			throw 100;
+	}
+	catch (int x)
+	{
+		if (x == 99)
+			std::cout << "Incorrect/No input. Try again.";
+		if (x == 100)
+			std:: cout << "Only numbers under 100 for now, sorry. :("
+	}
 
-	std::string str = to_string(input);
 
-	std::cout << root;
-	return 0;
+//	std::string str = to_string(input);
+//
+//	std::cout << str << std::endl;
 }
