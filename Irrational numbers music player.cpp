@@ -3,19 +3,19 @@
 
 #include "stdafx.h"
 
-std::string to_string(double x)
-{
+std::string to_string(double x) {
 	std::ostringstream ss;
 	ss.precision(60);
 	ss << x;
 	return ss.str();
 }
 
-int main()
-{
-	SetConsoleCP(1251); // установка кодовой страницы win-cp 1251 в поток ввода
-	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
-	
+template <typename T>
+void play_sound(T freq, int ms) {
+	Beep(freq, ms);
+}
+
+int main(void) {
 	enum Notes
 	{
 		Do,
@@ -52,46 +52,47 @@ int main()
 			break;
 		}
 	}
+	std::cout << "You choose to play a square root of " << input << std::endl;
 
 	std::string root = to_string(sqrt(input));
 	std::cout << "Now playing: ";
 	for (int i = 0; i < root.length(); i++)
 	{
-		switch (root[i])
+		std::cout << root[i];
+		int out = root[i] - '0';
+		switch (out)
 		{
 		case Do:
-			Beep(261.63, 200);
+			play_sound(261.63, 500);
 			break;
 		case Re:
-			Beep(293.66, 200);
+			play_sound(293.66, 500);
 			break;
 		case Mi:
-			Beep(329.63, 200);
+			play_sound(329.63, 500);
 			break;
 		case Fa:
-			Beep(349.23, 200);
+			play_sound(349.23, 500);
 			break;
 		case So:
-			Beep(392, 200);
+			play_sound(392, 500);
 			break;
 		case La:
-			Beep(440, 200);
+			play_sound(440, 500);
 			break;
 		case Ti:
-			Beep(493.88, 200);
+			play_sound(493.88, 500);
 			break;
 		case Do1:
-			Beep(523.25, 200);
+			play_sound(523.25, 500);
 			break;
 		case Re1:
-			Beep(587.33, 200);
+			play_sound(587.33, 500);
 			break;
 		case Mi1:
-			Beep(659.26, 200);
+			play_sound(659.26, 500);
 			break;
-		default:
-			std::cout << root[i];
 		}
 	}
-	std::cout << std::endl << "Thank you for listening!" << std::endl;
+	std::cout << std::endl << "Thank you for listening!" << std::endl << '\a';
 }
