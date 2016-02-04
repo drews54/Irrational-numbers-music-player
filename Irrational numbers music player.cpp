@@ -54,40 +54,44 @@ int main()
 	}
 
 	std::string root = to_string(sqrt(input));
+	std::cout << "Now playing: ";
 	for (int i = 0; i < root.length(); i++)
 	{
 		switch (root[i])
 		{
 		case Do:
-			Beep(261.63, 100);
+			Beep(261.63, 200);
 			break;
 		case Re:
-			Beep(293.66, 100);
+			Beep(293.66, 200);
 			break;
 		case Mi:
-			Beep(329.63, 100);
+			Beep(329.63, 200);
 			break;
 		case Fa:
-			Beep(349.23, 100);
+			Beep(349.23, 200);
 			break;
 		case So:
-			Beep(392, 100);
+			Beep(392, 200);
 			break;
 		case La:
-			Beep(440, 100);
+			Beep(440, 200);
 			break;
 		case Ti:
-			Beep(493.88, 100);
+			Beep(493.88, 200);
 			break;
 		case Do1:
-			Beep(523.25, 100);
+			Beep(523.25, 200);
 			break;
 		case Re1:
-			Beep(587.33, 100);
+			Beep(587.33, 200);
 			break;
 		case Mi1:
-			Beep(659.26, 100);
+			Beep(659.26, 200);
 			break;
+		default:
+			std::cout << root[i];
 		}
 	}
+	std::cout << std::endl << "Thank you for listening!" << std::endl;
 }
