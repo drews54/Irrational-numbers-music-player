@@ -10,8 +10,7 @@ std::string to_string(double x) {
 	return ss.str();
 }
 
-template <typename T>
-void play_sound(T freq, int ms) {
+void play_sound(double freq, int ms) {
 	Beep(freq, ms);
 }
 
@@ -56,7 +55,7 @@ int main(void) {
 
 	std::string root = to_string(sqrt(input));
 	std::cout << "Now playing: ";
-	for (int i = 0; i < root.length(); i++)
+	for (unsigned int i = 0; i < root.length(); i++)
 	{
 		std::cout << root[i];
 		int out = root[i] - '0';

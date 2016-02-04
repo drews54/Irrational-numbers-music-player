@@ -12,7 +12,6 @@
 
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <sstream>
 #include <cmath>
 #include <Windows.h>
