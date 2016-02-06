@@ -94,4 +94,5 @@ int main(void) {
 		}
 	}
 	std::cout << std::endl << "Thank you for listening!" << std::endl << '\a';
+	system("pause");
 }
