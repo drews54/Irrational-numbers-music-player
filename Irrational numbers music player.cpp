@@ -2,9 +2,18 @@
 #include "Music_Note.h"
 using namespace std;
 
+template <typename T>
+string toString(T x) {
+	std::ostringstream ss;
+	ss.precision(54);
+	ss << x;
+	return ss.str();
+}
+
 void parser(string &rt) {
 	for (unsigned int i = 0; i < rt.size(); ++i)
-		switch (rt[i])
+	{
+		switch (rt[i] - '0')
 		{
 		case 0:
 			DO.play();
@@ -39,15 +48,18 @@ void parser(string &rt) {
 		default:
 			break;
 		}
+		cout << rt[i];
+	}
 }
 
 int main() {
 	setlocale(LC_ALL, "");
-	unsigned int input;
+	long double input = NULL;
+	cout.precision(100);
 	cout << "Введите число для извлечения корня: ";
 	cin >> input;
 	string *root = new string;
-	*root = to_string(sqrtl(input));
+	*root = toString(sqrtl(input));
 	parser(*root);
 	cout << endl << "Спасибо за прослушивание!" << endl << '\a';
 	delete root;

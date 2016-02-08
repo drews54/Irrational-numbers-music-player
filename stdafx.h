@@ -7,5 +7,5 @@
 
 #include <iostream>
 #include <string>
-#include <iterator>
+#include <sstream>
 #include <cmath>
