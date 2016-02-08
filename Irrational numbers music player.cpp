@@ -63,5 +63,6 @@ int main() {
 	parser(*root);
 	cout << endl << "Спасибо за прослушивание!" << endl << '\a';
 	delete root;
+	system("pause");
 	return NULL;
 }
