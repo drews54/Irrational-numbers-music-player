@@ -1,95 +1,67 @@
 #include "stdafx.h"
+#include "Music_Note.h"
+using namespace std;
 
-std::string to_string(double x) {
+template <typename T>
+string toString(T x) {
 	std::ostringstream ss;
-	ss.precision(60);
+	ss.precision(54);
 	ss << x;
 	return ss.str();
 }
 
-void play_sound(double freq, int ms) {
-	Beep(freq, ms);
+void parser(string &rt) {
+	for (unsigned int i = 0; i < rt.size(); ++i)
+	{
+		switch (rt[i] - '0')
+		{
+		case 0:
+			DO.play();
+			break;
+		case 1:
+			RE.play();
+			break;
+		case 2:
+			MI.play();
+			break;
+		case 3:
+			FA.play();
+			break;
+		case 4:
+			SO.play();
+			break;
+		case 5:
+			LA.play();
+			break;
+		case 6:
+			TI.play();
+			break;
+		case 7:
+			DO1.play();
+			break;
+		case 8:
+			RE1.play();
+			break;
+		case 9:
+			MI1.play();
+			break;
+		default:
+			break;
+		}
+		cout << rt[i];
+	}
 }
 
-int main(void) {
-	enum Notes
-	{
-		Do,
-		Re,
-		Mi,
-		Fa,
-		So,
-		La,
-		Ti,
-		Do1,
-		Re1,
-		Mi1
-	};
-
-	double input = NULL;
-	std::cout << "Waiting for input: ";
-	std::cin >> input;
-	try
-	{
-		if (input == NULL)
-			throw 99;
-		if ((input >= 100) || (input) < 0)
-			throw 100;
-	}
-	catch (int x)
-	{
-		switch (x)
-		{
-		case 99:
-			std::cout << "Incorrect/No input. Try again." << std::endl;
-			break;
-		case 100:
-			std::cout << "Only 0-99 numbers for now, sorry. :(" << std::endl;
-			break;
-		}
-	}
-	std::cout << "You choose to play a square root of " << input << std::endl;
-
-	std::string root = to_string(sqrt(input));
-	std::cout << "Now playing: ";
-	for (unsigned int i = 0; i < root.length(); i++)
-	{
-		std::cout << root[i];
-		int out = root[i] - '0';
-		switch (out)
-		{
-		case Do:
-			play_sound(261.63, 500);
-			break;
-		case Re:
-			play_sound(293.66, 500);
-			break;
-		case Mi:
-			play_sound(329.63, 500);
-			break;
-		case Fa:
-			play_sound(349.23, 500);
-			break;
-		case So:
-			play_sound(392, 500);
-			break;
-		case La:
-			play_sound(440, 500);
-			break;
-		case Ti:
-			play_sound(493.88, 500);
-			break;
-		case Do1:
-			play_sound(523.25, 500);
-			break;
-		case Re1:
-			play_sound(587.33, 500);
-			break;
-		case Mi1:
-			play_sound(659.26, 500);
-			break;
-		}
-	}
-	std::cout << std::endl << "Thank you for listening!" << std::endl << '\a';
-	system("pause");
+int main() {
+	setlocale(LC_ALL, "");
+	long double input = NULL;
+	cout.precision(100);
+	cout << "Введите число для извлечения корня: ";
+	cin >> input;
+	string *root = new string;
+	*root = toString(sqrtl(input));
+	parser(*root);
+	cout << endl << "Спасибо за прослушивание!" << endl << '\a';
+	delete root;
+	return NULL;
 }
