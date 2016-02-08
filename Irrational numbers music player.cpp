@@ -1,6 +1,3 @@
-// Irrational numbers music player.cpp: определяет точку входа для консольного приложения.
-//
-
 #include "stdafx.h"
 
 std::string to_string(double x) {
